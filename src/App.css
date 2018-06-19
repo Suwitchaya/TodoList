@@ -26,3 +26,19 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.text-lable{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.MuiDialog-paper-34 {
+  width: 400px;
+}
+
+.list-item{
+  border-bottom: 1ex;
+  border-bottom-color: #222;
+}
+.input-text{
+  width: 69%;
+}
