@@ -1,17 +1,27 @@
 import React from 'react';
-
+import Checkbox from '@material-ui/core/Checkbox';
 
 const ListItem = (props) => {
-  
+
+  const handleToggle = e =>{
+    console.log(e.target.value);
+  }
   
   return(
-    <div className="list-item" key={props.item.id}>
+    <li className="list-item" key={props.item.id}>
+    <Checkbox
+                // checked={props.item.id}
+                tabIndex={-1}
+                disableRipple
+                value={props.item.id}
+                onChange={handleToggle}
+              />
       <h3>{props.item.title}</h3>
-      <div>
+      <p>
         {props.item.description}
-      </div>
+      </p>
       <p>{props.item.date}</p>
-    </div>
+    </li>
   )
 }
 

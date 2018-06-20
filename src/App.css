@@ -35,9 +35,8 @@
   width: 400px;
 }
 
-.list-item{
-  border-bottom: 1ex;
-  border-bottom-color: #222;
+.todo-list{
+  list-style-type:none;
 }
 .input-text{
   width: 69%;

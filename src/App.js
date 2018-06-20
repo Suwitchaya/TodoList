@@ -5,6 +5,7 @@ import "./App.css";
 
 import AlertDialogSlide from './components/Dialog';
 import ControlledOpenSelect from './components/Select';
+
 class App extends Component {
   render() {
     return (
@@ -12,6 +13,7 @@ class App extends Component {
       <h1>TODO List</h1>
     <AlertDialogSlide />
     <ControlledOpenSelect />
+
       </div>
     );
   }

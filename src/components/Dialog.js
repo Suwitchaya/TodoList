@@ -6,9 +6,10 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 // import styled from 'styled-components'
-import DatePickers from './DatePicker';
+// import DatePicker from 'react-date-picker';
 import Input from '@material-ui/core/Input';
 import {connect}  from 'react-redux';
+import TextField from '@material-ui/core/TextField';
 
 function Transition(props) {
   return <Slide direction="up" {...props} />;
@@ -19,7 +20,8 @@ class AlertDialogSlide extends React.Component {
     open: false,
     title: "",
     des: "",
-    date:""
+    date:new Date(),
+    time:""
   };
 
   handleClickOpen = () => {
@@ -32,32 +34,24 @@ class AlertDialogSlide extends React.Component {
   addTodoList = () => {
     const inputTitle = this.state.title;
     const inputDes = this.state.des;
-    // this.state.data.push({ list: input.value })
-    // this.setState({ data: [...this.state.data, input.value] });
+    const inputDate = this.state.date;
+    const inputTime = this.state.time;
     console.log("inputTitle: "+inputTitle);
     console.log("inputDes: "+inputDes);
+    console.log("inputDate: "+inputDate);
+    console.log("inputTime: "+inputTime);
   }
   handleChange = (key)=>{
     let input = key.target.value;
-    this.setState({[key.target.name]:input})
+    this.setState({[key.target.name]:input.toString()})
     console.log(key.target.name+"+"+input);
   }
-  clickDate = (x) => {
-    // this.setState({
-    //   controlledDate: date,
-    // });
-    console.log("date:"+x.target.value);
-  };
+  changeDate=(e)=>{
+    this.setState({[e.target.name]:e.target.value});
+  console.log(e.target.name +"+"+e.target.value);
+  }
+  _onChange = date => this.setState({datetime:date})
   render() {
-  //   const Input = styled.input`
-  //   padding: 0.5em;
-  //   margin: 0.5em;
-  //   color: palevioletred;
-  //   background: papayawhip;
-  //   border: none;
-  //   border-radius: 3px;
-  //   width:60%;
-  // `;
     return (
       <div>
         <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>ADD</Button>
@@ -92,7 +86,33 @@ class AlertDialogSlide extends React.Component {
                           }}
                     />
               </div>
-              <div className="text-lable"> <span> Date : </span><DatePickers  /></div>
+              <div className="text-lable"> <span> Date : </span>    
+                  <TextField
+                      id="date"
+                      type="date"
+                      value={this.state.date}
+                      onChange={this.changeDate}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                        inputProps={{
+                        "name": "date",
+                      }}
+                  />
+                <TextField
+                    id="time"
+                    type="time"
+                    value={this.state.time}
+                    onChange={this.changeDate}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    inputProps={{
+                      "name": "time",
+                    }}
+                />
+              </div>
+              <div className="text-lable"> </div>
               <p>{this.props.title}</p>
           </DialogContent>
           <DialogActions>

@@ -9,9 +9,9 @@ const ListTodo = (props) =>{
     )
   })
   return(
-    <div>
+    <ui className="todo-list">
     {item}
-    </div>
+    </ui>
     
   )
 }
